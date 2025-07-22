@@ -1,16 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Fic của Shine</title>
+  <title>Fanfic của Shine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #1a1a2e;
+      color: white;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+      color: #f08a5d;
+    }
+
+    .fic-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .fic-card {
+      background: #16213e;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .fic-card:hover {
+      transform: scale(1.03);
+    }
+
+    .fic-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .fic-card .content {
+      padding: 20px;
+    }
+
+    .fic-card h3 {
+      margin: 0 0 10px;
+      color: #f9ed69;
+    }
+
+    .fic-card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .fic-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #f08a5d;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .fic-card a:hover {
+      background: #f67280;
+    }
+
+    .back-home {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .back-home a {
+      color: #f08a5d;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>📚 Truyện ngắn của Shine</h1>
-  <ul>
-    <li><a href="fic1.html">🌙 Truyện 1: Dưới Ánh Trăng</a></li>
-    <li><a href="#">Truyện 2: Đang cập nhật...</a></li>
-    <li><a href="#">Truyện 3: Đang cập nhật...</a></li>
-  </ul>
-  <a href="index.html">← Quay về trang chủ</a>
+
+  <h1>📚 Fanfic của Shine</h1>
+
+  <div class="fic-list">
+    <div class="fic-card">
+      <img src="https://i.imgur.com/9Oa3U0G.jpeg" alt="Bìa truyện 1">
+      <div class="content">
+        <h3>🌙 Dưới Ánh Trăng</h3>
+        <p>Một câu chuyện nhẹ nhàng, lãng mạn giữa đêm tối và ánh sáng...</p>
+        <a href="fic1.html">Đọc truyện</a>
+      </div>
+    </div>
+
+    <div class="fic-card">
+      <img src="https://i.imgur.com/5zH6cMd.jpeg" alt="Bìa truyện 2">
+      <div class="content">
+        <h3>🔥 Ngọn Lửa Cuối Đông</h3>
+        <p>Truyện đang được cập nhật...</p>
+        <a href="#">Đang viết</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-home">
+    <a href="index.html">← Quay về trang chủ</a>
+  </div>
+
 </body>
 </html>
