@@ -1,22 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Trang Web Đầu Tiên</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trang Cá Nhân</title>
   <style>
     body {
-      font-family: sans-serif;
-      background: #f0f0f0;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
     }
-    h1 {
+
+    header {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      background: #34495e;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
       color: #2c3e50;
+    }
+
+    footer {
+      text-align: center;
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <h1>Xin chào! 👋</h1>
-  <p>Đây là trang web đầu tiên tôi tạo bằng GitHub Pages.</p>
+
+  <header>
+    <img src="https://i.imgur.com/MTl2Ctb.png" alt="Ảnh đại diện">
+    <h1>Xin chào, tôi là Shine!</h1>
+    <p>Lập trình viên & người khám phá web ✨</p>
+  </header>
+
+  <nav>
+    <a href="#gioithieu">Giới thiệu</a>
+    <a href="#duan">Dự án</a>
+    <a href="#lienhe">Liên hệ</a>
+  </nav>
+
+  <section id="gioithieu">
+    <h2>Giới thiệu</h2>
+    <p>Tôi là người mới học làm web, đam mê công nghệ và sáng tạo. Trang này là sản phẩm đầu tiên của tôi sử dụng GitHub Pages!</p>
+  </section>
+
+  <section id="duan">
+    <h2>Dự án</h2>
+    <ul>
+      <li>✔️ Trang web cá nhân đơn giản</li>
+      <li>✔️ Portfolio bằng HTML/CSS</li>
+      <li>🚧 Đang học JavaScript</li>
+    </ul>
+  </section>
+
+  <section id="lienhe">
+    <h2>Liên hệ</h2>
+    <p>Email: <a href="mailto:shine@example.com">shine@example.com</a></p>
+    <p>Zalo: 0123-456-789</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Shine. Tự học & Tự làm 💪
+  </footer>
+
 </body>
 </html>
