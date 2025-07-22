@@ -1,18 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <title>Dưới Ánh Trăng</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    }
+
+    .disc-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-direction: column;
+    }
+
+    .disc {
+      width: 120px;
+      height: 120px;
+      background-image: url('https://i.imgur.com/6U0zR4l.png');
+      background-size: cover;
+      border-radius: 50%;
+      animation: spin 8s linear infinite;
+      margin-bottom: 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f9ed69;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #f08a5d;
+      font-weight: bold;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h1>🌙 Dưới Ánh Trăng</h1>
-  <p><em>Tác giả: Shine</em></p>
-  <p>
-    Gió thổi nhẹ qua khung cửa, mang theo hương hoa đêm.  
-    Cậu ngồi đó, một mình, dưới ánh trăng dịu nhẹ...  
-    <br><br>
-    (Bạn có thể viết tiếp nội dung dài ở đây)
-  </p>
-  <a href="fic.html">← Quay lại danh sách truyện</a>
+
+  <div class="container">
+    <h1>🌙 Dưới Ánh Trăng</h1>
+
+    <div class="disc-container">
+      <div class="disc"></div>
+      <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ audio.
+      </audio>
+    </div>
+
+    <p>
+      Gió thổi nhẹ qua khung cửa, mang theo hương hoa đêm.<br>
+      Cậu ngồi đó, một mình, dưới ánh trăng dịu nhẹ...<br><br>
+      Đêm ấy, mọi thứ bắt đầu.
+    </p>
+
+    <a class="back" href="fic.html">← Quay lại danh sách truyện</a>
+  </div>
+
 </body>
 </html>
