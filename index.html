@@ -96,6 +96,41 @@
       height: 100%;
       border-radius: 5px;
     }
+    #calendar {
+  width: 100%;
+  max-width: 320px;
+  margin: 20px auto;
+  font-family: sans-serif;
+}
+#month {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#weekdays, #dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+#dates div {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+#dates div.has-note {
+  background: #4CB5AE;
+  border-radius: 50%;
+  color: white;
+}
+#note-box {
+  margin-top: 20px;
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
   </style>
 </head>
 <body>
@@ -115,11 +150,81 @@
 </body>
 </html>
 
+<section id="lich">
+  <h2>📅 Lịch học và ghi chú</h2>
+  <div id="calendar">
+    <div id="month"></div>
+    <button id="prev">«</button>
+    <button id="next">»</button>
+    <div id="weekdays"></div>
+    <div id="dates"></div>
+  </div>
+
+  <div id="note-box" style="display:none;">
+    <h3>📝 Ghi chú cho ngày <span id="note-date"></span></h3>
+    <textarea id="note-text" rows="4" cols="30"></textarea>
+    <button onclick="saveNote()">Lưu ghi chú</button>
+  </div>
+</section>
 
 
   <footer>
     &copy; 2025 Shine. Tự học & Tự làm 💪
   </footer>
+<script>
+const lNotes = JSON.parse(localStorage.getItem('notes')||'{}');
+
+function renderCalendar(y, m) {
+  document.getElementById('dates').innerHTML = '';
+  document.getElementById('month').innerText = `${y}-${m+1}`;
+
+  const weekdays = ['CN','T2','T3','T4','T5','T6','T7'];
+  document.getElementById('weekdays').innerHTML = weekdays.map(d=>`<div>${d}</div>`).join('');
+
+  const start = new Date(y,m,1).getDay();
+  const days = new Date(y,m+1,0).getDate();
+
+  for(let i=0;i<start;i++)
+    document.getElementById('dates').innerHTML += `<div></div>`;
+
+  for(let d=1; d<=days; d++){
+    const key = `${y}-${m+1}-${d}`;
+    const noteClass = lNotes[key] ? 'has-note' : '';
+    document.getElementById('dates').innerHTML +=
+      `<div class="${noteClass}" onclick="openNote('${key}')">${d}</div>`;
+  }
+}
+
+function openNote(key) {
+  document.getElementById('note-box').style.display = 'block';
+  document.getElementById('note-date').innerText = key;
+  document.getElementById('note-text').value = lNotes[key] || '';
+}
+
+function saveNote() {
+  const key = document.getElementById('note-date').innerText;
+  lNotes[key] = document.getElementById('note-text').value;
+  localStorage.setItem('notes', JSON.stringify(lNotes));
+  renderCalendar(...document.currentCalendar);
+}
+
+let today = new Date();
+document.currentCalendar = [today.getFullYear(), today.getMonth()];
+renderCalendar(...document.currentCalendar);
+
+document.getElementById('prev').onclick = () => {
+  let [y,m]=document.currentCalendar;
+  m--; if(m<0){m=11; y--;}
+  document.currentCalendar=[y,m];
+  renderCalendar(y,m);
+}
+document.getElementById('next').onclick = () => {
+  let [y,m]=document.currentCalendar;
+  m++; if(m>11){m=0; y++;}
+  document.currentCalendar=[y,m];
+  renderCalendar(y,m);
+}
+</script>
 
 </body>
 </html>
