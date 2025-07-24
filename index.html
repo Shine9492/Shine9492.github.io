@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="https://github.com/Shine9492/Shine9492.github.io/blob/main/Screenshot%202025-07-23%20221107.png?raw=true">
   <title>Fix&Fic</title>
+  <link rel="icon" type="image/png" href="https://github.com/Shine9492/Shine9492.github.io/blob/main/Screenshot%202025-07-23%20221107.png?raw=true">
   <style>
     body {
       margin: 0;
@@ -46,22 +46,115 @@
       text-decoration: underline;
     }
 
-    section {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      color: #2c3e50;
-    }
-
     footer {
       text-align: center;
       background: #2c3e50;
       color: white;
       padding: 20px;
       margin-top: 40px;
+    }
+
+    section.container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .left, .right {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .progress-bar {
+      background: #ddd;
+      border-radius: 5px;
+      height: 10px;
+      margin-bottom: 10px;
+    }
+
+    .progress {
+      background: #4CB5AE;
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    /* Calendar */
+    #calendar {
+      width: 100%;
+      background: #ffeaf5;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px #f5a6cb;
+    }
+
+    #month {
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      color: #c94c8c;
+    }
+
+    #weekdays, #dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    #weekdays div, #dates div {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    #weekdays div {
+      color: #7d3879;
+    }
+
+    #dates div {
+      cursor: pointer;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    #dates div:hover {
+      background: #f9c2d8;
+    }
+
+    #dates div.has-note {
+      background: #e47ea0;
+      color: white;
+    }
+
+    #dates div.today {
+      background: white;
+      color: #e47ea0;
+      border: 2px solid #e47ea0;
+      border-radius: 4px;
+    }
+
+    #note-box {
+      background: #fff5fa;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      color: #6b326c;
+    }
+
+    button {
+      background: #f08a5d;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      background: #f67280;
     }
   </style>
 </head>
@@ -79,152 +172,93 @@
     <a href="#reviewcosonganhne">Review cơ sở ngành nè</a>
     <a href="fic.html">Fic</a>
   </nav>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Tiến độ học lập trình</title>
-  <style>
-    .progress-bar {
-      background: #eee;
-      border-radius: 5px;
-      height: 10px;
-      margin-bottom: 10px;
-    }
-    .progress {
-      background: #4CB5AE;
-      height: 100%;
-      border-radius: 5px;
-    }
-    #calendar {
-  width: 100%;
-  max-width: 320px;
-  margin: 20px auto;
-  font-family: sans-serif;
-}
-#month {
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-#weekdays, #dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-#dates div {
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-}
-#dates div.has-note {
-  background: #4CB5AE;
-  border-radius: 50%;
-  color: white;
-}
-#note-box {
-  margin-top: 20px;
-  background: #eee;
-  padding: 10px;
-  border-radius: 5px;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
-}
-  </style>
-</head>
-<body>
 
-  <h3>🎯 Tiến độ học lập trình</h3>
+  <section class="container">
+    <div class="left">
+      <h3>🎯 Tiến độ học lập trình</h3>
+      <p>HTML/CSS</p>
+      <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+      <p>JavaScript</p>
+      <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
+    </div>
 
-  <p>HTML/CSS</p>
-  <div class="progress-bar">
-    <div class="progress" style="width: 80%"></div>
-  </div>
+    <div class="right">
+      <h3>📅 Lịch học và ghi chú</h3>
+      <div id="calendar">
+        <div id="month"></div>
+        <button id="prev">«</button>
+        <button id="next">»</button>
+        <div id="weekdays"></div>
+        <div id="dates"></div>
+      </div>
 
-  <p>JavaScript</p>
-  <div class="progress-bar">
-    <div class="progress" style="width: 40%"></div>
-  </div>
-
-</body>
-</html>
-
-<section id="lich">
-  <h2>📅 Lịch học và ghi chú</h2>
-  <div id="calendar">
-    <div id="month"></div>
-    <button id="prev">«</button>
-    <button id="next">»</button>
-    <div id="weekdays"></div>
-    <div id="dates"></div>
-  </div>
-
-  <div id="note-box" style="display:none;">
-    <h3>📝 Ghi chú cho ngày <span id="note-date"></span></h3>
-    <textarea id="note-text" rows="4" cols="30"></textarea>
-    <button onclick="saveNote()">Lưu ghi chú</button>
-  </div>
-</section>
-
+      <div id="note-box" style="display:none;">
+        <h4>📝 Ghi chú cho ngày <span id="note-date"></span></h4>
+        <textarea id="note-text" rows="4" cols="30"></textarea><br>
+        <button onclick="saveNote()">Lưu ghi chú</button>
+      </div>
+    </div>
+  </section>
 
   <footer>
     &copy; 2025 Shine. Tự học & Tự làm 💪
   </footer>
-<script>
-const lNotes = JSON.parse(localStorage.getItem('notes')||'{}');
 
-function renderCalendar(y, m) {
-  document.getElementById('dates').innerHTML = '';
-  document.getElementById('month').innerText = `${y}-${m+1}`;
+  <script>
+    const lNotes = JSON.parse(localStorage.getItem('notes') || '{}');
 
-  const weekdays = ['CN','T2','T3','T4','T5','T6','T7'];
-  document.getElementById('weekdays').innerHTML = weekdays.map(d=>`<div>${d}</div>`).join('');
+    function renderCalendar(y, m) {
+      document.getElementById('dates').innerHTML = '';
+      document.getElementById('month').innerText = `${y}-${m+1}`;
+      const weekdays = ['CN','T2','T3','T4','T5','T6','T7'];
+      document.getElementById('weekdays').innerHTML = weekdays.map(d=>`<div>${d}</div>`).join('');
+      const start = new Date(y,m,1).getDay();
+      const days = new Date(y,m+1,0).getDate();
 
-  const start = new Date(y,m,1).getDay();
-  const days = new Date(y,m+1,0).getDate();
+      for(let i=0;i<start;i++)
+        document.getElementById('dates').innerHTML += `<div></div>`;
 
-  for(let i=0;i<start;i++)
-    document.getElementById('dates').innerHTML += `<div></div>`;
+      for(let d=1; d<=days; d++){
+        const key = `${y}-${m+1}-${d}`;
+        const noteClass = lNotes[key] ? 'has-note' : '';
+        const today = new Date();
+        const isToday = today.getDate() === d && today.getMonth() === m && today.getFullYear() === y;
+        const className = `${noteClass} ${isToday ? 'today' : ''}`;
+        document.getElementById('dates').innerHTML +=
+          `<div class="${className}" onclick="openNote('${key}')">${d}</div>`;
+      }
+    }
 
-  for(let d=1; d<=days; d++){
-    const key = `${y}-${m+1}-${d}`;
-    const noteClass = lNotes[key] ? 'has-note' : '';
-    document.getElementById('dates').innerHTML +=
-      `<div class="${noteClass}" onclick="openNote('${key}')">${d}</div>`;
-  }
-}
+    function openNote(key) {
+      document.getElementById('note-box').style.display = 'block';
+      document.getElementById('note-date').innerText = key;
+      document.getElementById('note-text').value = lNotes[key] || '';
+    }
 
-function openNote(key) {
-  document.getElementById('note-box').style.display = 'block';
-  document.getElementById('note-date').innerText = key;
-  document.getElementById('note-text').value = lNotes[key] || '';
-}
+    function saveNote() {
+      const key = document.getElementById('note-date').innerText;
+      lNotes[key] = document.getElementById('note-text').value;
+      localStorage.setItem('notes', JSON.stringify(lNotes));
+      renderCalendar(...document.currentCalendar);
+    }
 
-function saveNote() {
-  const key = document.getElementById('note-date').innerText;
-  lNotes[key] = document.getElementById('note-text').value;
-  localStorage.setItem('notes', JSON.stringify(lNotes));
-  renderCalendar(...document.currentCalendar);
-}
+    let today = new Date();
+    document.currentCalendar = [today.getFullYear(), today.getMonth()];
+    renderCalendar(...document.currentCalendar);
 
-let today = new Date();
-document.currentCalendar = [today.getFullYear(), today.getMonth()];
-renderCalendar(...document.currentCalendar);
-
-document.getElementById('prev').onclick = () => {
-  let [y,m]=document.currentCalendar;
-  m--; if(m<0){m=11; y--;}
-  document.currentCalendar=[y,m];
-  renderCalendar(y,m);
-}
-document.getElementById('next').onclick = () => {
-  let [y,m]=document.currentCalendar;
-  m++; if(m>11){m=0; y++;}
-  document.currentCalendar=[y,m];
-  renderCalendar(y,m);
-}
-</script>
+    document.getElementById('prev').onclick = () => {
+      let [y,m]=document.currentCalendar;
+      m--; if(m<0){m=11; y--;}
+      document.currentCalendar=[y,m];
+      renderCalendar(y,m);
+    }
+    document.getElementById('next').onclick = () => {
+      let [y,m]=document.currentCalendar;
+      m++; if(m>11){m=0; y++;}
+      document.currentCalendar=[y,m];
+      renderCalendar(y,m);
+    }
+  </script>
 
 </body>
 </html>
