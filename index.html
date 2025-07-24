@@ -196,6 +196,8 @@
         <h4>📝 Ghi chú cho ngày <span id="note-date"></span></h4>
         <textarea id="note-text" rows="4" cols="30"></textarea><br>
         <button onclick="saveNote()">Lưu ghi chú</button>
+        <button onclick="document.getElementById('note-box').style.display='none'">Đóng</button>
+
       </div>
     </div>
   </section>
@@ -240,6 +242,8 @@
       lNotes[key] = document.getElementById('note-text').value;
       localStorage.setItem('notes', JSON.stringify(lNotes));
       renderCalendar(...document.currentCalendar);
+      
+
     }
 
     let today = new Date();
