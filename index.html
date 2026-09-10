@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cẩm tú cầu xinh đẹp của em</title> <link rel="icon" type="image/png" href="https://github.com/Shine9492/Shine9492.github.io/blob/main/Screenshot%202025-07-23%20221107.png?raw=true">
+  <title>Cẩm tú cầu xinh đẹp của em</title> 
+  <link rel="icon" type="image/png" href="https://github.com/Shine9492/Shine9492.github.io/blob/main/Screenshot%202025-07-23%20221107.png?raw=true">
 
   <style>
     /* ==========================================
@@ -44,6 +45,7 @@
       background: rgba(52, 73, 94, 0.9);
       display: flex;
       justify-content: center;
+      align-items: center;
       padding: 12px;
     }
 
@@ -58,6 +60,55 @@
     nav a:hover {
       color: #2ecc71; /* Di chuột vào chữ menu sẽ đổi sang màu xanh lá */
       text-decoration: underline;
+    }
+
+    /* Styling cho Dropdown Menu */
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.98);
+      min-width: 280px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      z-index: 1000;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    nav .dropdown-content a {
+      color: #2c3e50;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 500;
+      border-bottom: 1px solid #f0f0f0;
+      margin: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    nav .dropdown-content a:hover {
+      background-color: #27ae60;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Hiển thị danh sách khi di chuột vào */
+    nav .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     /* Phần thân trang web chứa lịch và nội dung */
@@ -217,13 +268,23 @@
   </header>
 
   <nav>
-    <a href="about.html">Giới thiệu</a>          <a href="#hoachdinhtuonglai">Tương lai</a>
-    <a href="#reviewcosonganhne">Những vì sao trên trời cao</a>
-    <a href="nhatky-cu.html">Những ngày đợi gặp anh</a>      </nav>
+    <a href="about.html">Giới thiệu</a>
+    
+    <!-- Dropdown Danh sách Fic -->
+    <div class="dropdown">
+      <a href="#reviewcosonganhne">Những vì sao trên trời cao ▾</a>
+      <div class="dropdown-content">
+        <a href="fic.html">Tôi sẽ cô độc cả đời sao </a>
+        <!-- Sau này muốn thêm bài mới thì copy dòng dưới đây ra thêm nha -->
+        <!-- <a href="fic-2.html">✦ Tên tác phẩm tiếp theo...</a> -->
+      </div>
+    </div>
+
+    <a href="#hoachdinhtuonglai">Tương lai</a>
+    <a href="nhatky-cu.html">Những ngày đợi gặp anh</a>
+  </nav>
 
   <section class="container">
-    
-  
     <div class="right">
       <h3>📅 Nhật Ký Của Shine</h3>
       <div id="calendar">
@@ -243,11 +304,11 @@
         <button class="secondary" onclick="document.getElementById('note-box').style.display='none'">Đóng lại</button>
       </div>
     </div>
-
   </section>
 
   <footer>
-    &copy; Yêu anh thật nhiều </footer>
+    &copy; Yêu anh thật nhiều
+  </footer>
 
   <script>
     // Tạm thời vẫn lấy dữ liệu từ trình duyệt cũ (Lượt sau mình sẽ đổi đoạn này thành Database)
